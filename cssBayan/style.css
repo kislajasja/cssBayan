@@ -1,0 +1,114 @@
+body {
+  background-color: #e1dbd9;
+  font-family: "Arial";
+  padding: 2rem 15rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #2f2f2f;
+  text-align: center;
+}
+
+img {
+  display: none;
+}
+
+.acc-container {
+  width: 100%;
+  margin: auto;
+}
+
+.acc-body {
+  width: 98%;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  background-color: #a3c8d6;
+  transition: 0.5s;
+  box-sizing: border-box;
+}
+
+.acc-container label {
+  cursor: pointer;
+  display: block;
+  padding: 1rem;
+  width: 100%;
+  z-index: 100;
+}
+
+.acc-container label:hover {
+  background-color: #7c68aa;
+}
+
+.acc-container input {
+  display: none;
+}
+
+.acc-header {
+  background-color: #b2a3d6;
+  border: 0.1rem solid #8c80a9;
+  display: flex;
+}
+
+.acc-button {
+  background-color: inherit;
+  margin: auto 1rem;
+  border: 0;
+}
+
+.acc-button::before {
+  font-family: "FontAwesome";
+  content: "\f067";
+}
+
+input:checked + .acc-header {
+  background-color: #7c68aa;
+}
+
+input:checked + .acc-header .acc-button::before {
+  font-family: "FontAwesome";
+  content: "\f00d";
+  transition: 0.5s;
+}
+
+.acc-container input:checked ~ .acc-body {
+  height: auto;
+  padding: 2rem;
+  transition: 0.5s;
+}
+
+.acc-container input:checked ~ .acc-body img {
+  display: block;
+  width: 35%;
+  margin: auto;
+}
+
+@media (max-width: 1920px) {
+  body {
+    padding: 2rem 10rem;
+  }
+  .acc-container input:checked ~ .acc-body img {
+    width: 40%;
+  }
+}
+
+@media (max-width: 820px) {
+  body {
+    padding: 2rem;
+  }
+  .acc-container input:checked ~ .acc-body img {
+    width: 70%;
+  }
+  .acc-container label {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding: 1rem;
+  }
+  .acc-container label {
+    padding: 0.2rem;
+  }
+}
