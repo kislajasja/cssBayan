@@ -35,7 +35,6 @@ h1 {
   z-index: 100;
   color: #4f348c;
   font-weight: 600;
-  transition: 0.5s;
 }
 
 .acc-container:hover .acc-label {
@@ -68,18 +67,29 @@ input:checked + label .acc-header {
   background-color: #7c68aa;
 }
 
-input:checked + label .acc-label {
-  color: black;
+input:hover + label .acc-header {
+  background-color: #7c68aa;
 }
 
-.acc-container:hover input:checked + label .acc-button::before {
-  font-family: "FontAwesome";
-  content: "\f00d";
+input:checked + label .acc-label {
+  color: #000000;
 }
 
 .acc-container:hover input + label .acc-button::before {
   font-family: "FontAwesome";
   content: "\f067";
+}
+
+.acc-container:hover input:checked + label .acc-button::before {
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(90deg);
+}
+
+.acc-container input:hover + label .acc-button::before {
+  font-family: "FontAwesome";
+  content: "\f00d";
+  transform: rotate(0deg);
 }
 
 .acc-container input:checked + label .acc-body {
@@ -101,8 +111,10 @@ input:checked + label .acc-label {
 }
 
 img {
+  width: 0;
   margin: 2rem auto;
   display: block;
+  transition: all 0.5s ease-in-out;
 }
 
 @media (max-width: 1920px) {
@@ -110,11 +122,11 @@ img {
     padding: 2rem 10rem;
     font-size: 1rem;
   }
-  .acc-container input:checked ~ .acc-body img {
+  .acc-container input:hover + label .acc-body img {
     width: 40%;
   }
 
-  .acc-header:hover ~ .acc-body img {
+  .acc-container input:checked + label .acc-body img {
     width: 40%;
   }
 }
@@ -125,11 +137,11 @@ img {
     font-size: 0.8rem;
   }
 
-  .acc-container input:checked ~ .acc-body img {
+  .acc-container input:hover + label .acc-body img {
     width: 70%;
   }
 
-  .acc-header:hover ~ .acc-body img {
+  .acc-container input:checked + label .acc-body img {
     width: 70%;
   }
 }
